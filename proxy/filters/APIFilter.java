@@ -13,7 +13,7 @@ public class APIFilter extends ZuulFilter {
 
 	private static final int PRE_DECORATION_FILTER_ORDER = 6;
 	private static final String PRE_TYPE = "pre";
-	private static final String API_MARKER = "uatapi";
+	private static final String API_MARKER = "api";
 	private static Logger log = LoggerFactory.getLogger(APIFilter.class);
 	@Autowired
 	APIServiceImpl service;
@@ -45,12 +45,8 @@ public class APIFilter extends ZuulFilter {
 
 	@Override
 	public Object run() {
-		/* Working on it */
 		RequestContext ctx = RequestContext.getCurrentContext();
-		log.info("We are here");
-		//HttpServletRequest request = ctx.getRequest();
 		service.execute(ctx);
-
 		return null;
 	}
 
