@@ -13,11 +13,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FilterConfig {
 	@Value("${environments.urlz1}")
-	private String URL_UAT_Z2;
+	private String URL1;
 	@Value("${environments.urlz2.1}")
-	private String URL_UAT2_ZONE_1;
+	private String URL21;
 	@Value("${environments.urlz2.2}")
-	private String URL_UAT2_ZONE_2;
+	private String URL22;
 
 	@Bean
 	public PreFilter preFilter() {
@@ -36,12 +36,12 @@ public class FilterConfig {
 
 	@Bean(name = "zone1")
 	public FunctionalZone beanZone1() {
-		return new FunctionalZone("", URL_UAT_Z2);
+		return new FunctionalZone("", URL1);
 	}
 
 	@Bean(name = "zone2")
 	public FunctionalZone beanZone2() {
-		return new FunctionalZone(URL_UAT2_ZONE_1, URL_UAT2_ZONE_2);
+		return new FunctionalZone(URL21, URL22);
 	}
 
 }
